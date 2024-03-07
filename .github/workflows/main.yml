@@ -1,0 +1,40 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: |
+        echo 'Placeholder: Installing dependencies...'
+
+    - name: Run Tests
+      run: |
+        echo 'Placeholder: Running tests...'
+
+    - name: Build Application
+      run: |
+        echo 'Placeholder: Building application...'
+
+    - name: Archive Build Artifacts
+      run: |
+        echo 'Placeholder: Archiving build artifacts...'
+
+    - name: Publish Build Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: build-artifacts
+        path: ${{ github.workspace }}/build
+
+    - name: Deploy to Test Environment
+      run: |
+        echo 'Placeholder: Deploying to test environment...'
