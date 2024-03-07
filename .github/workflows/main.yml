@@ -35,6 +35,38 @@ jobs:
         name: build-artifacts
         path: ${{ github.workspace }}/build
 
-    - name: Deploy to Test Environment
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifacts
+        path: ${{ github.workspace }}/build
+
+    - name: Run Integration Tests
       run: |
-        echo 'Placeholder: Deploying to test environment...'
+        echo 'Placeholder: Running integration tests...'
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifacts
+        path: ${{ github.workspace }}/build
+
+    - name: Deploy to Production
+      run: |
+        echo 'Placeholder: Deploying to production environment...'
