@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -43,30 +43,30 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Download Build Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: build-artifacts
-        path: ${{ github.workspace }}/build
+   # - name: Download Build Artifacts
+   #   uses: actions/download-artifact@v2
+   #   with:
+   #     name: build-artifacts
+   #     path: ${{ github.workspace }}/build
 
-    - name: Run Integration Tests
-      run: |
-        echo 'Placeholder: Running integration tests...'
+   # - name: Run Integration Tests
+   #   run: |
+   #     echo 'Placeholder: Running integration tests...'
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
+ # deploy:
+ #   needs: test
+ #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+#    steps:
+#    - name: Checkout Repository
+#      uses: actions/checkout@v2
 
-    - name: Download Build Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        name: build-artifacts
-        path: ${{ github.workspace }}/build
+#    - name: Download Build Artifacts
+#      uses: actions/download-artifact@v2
+#      with:
+#        name: build-artifacts
+#        path: ${{ github.workspace }}/build
 
-    - name: Deploy to Production
-      run: |
-        echo 'Placeholder: Deploying to production environment...'
+#    - name: Deploy to Production
+#      run: |
+#        echo 'Placeholder: Deploying to production environment...'
