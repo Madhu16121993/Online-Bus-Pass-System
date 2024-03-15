@@ -27,9 +27,6 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-      # Replace this with your test command
-
       - name: Zip Artifact for Deployment
         run: zip -r python-app.zip ./*
 
