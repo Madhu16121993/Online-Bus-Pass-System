@@ -39,9 +39,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
       - name: Download artifact from build job
@@ -50,12 +47,14 @@ jobs:
           name: python-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip python-app.zip
 
-    #  - name: 'Deploy to Azure Web App'
-    #    uses: azure/webapps-deploy@v2
-    #    id: deploy-to-webapp
-    #    with:
-    #      app-name: 'OBPM'
-    #      slot-name: 'Production'
-    #      publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_222882C67C18402FAF95BD35D149B579 }}
+      - name: Install dependencies
+        run: |
+          cd python-app
+          pip install -r requirements.txt
+
+      - name: Run Python Application Locally
+        run: |
+          cd python-app
+          python app.py
