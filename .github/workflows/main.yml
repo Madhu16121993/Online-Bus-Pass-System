@@ -58,5 +58,4 @@ jobs:
 
       - name: Run Python Application Locally
         run: |
-          cd python-app
           python app.py
