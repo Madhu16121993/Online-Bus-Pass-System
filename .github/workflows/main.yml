@@ -54,7 +54,6 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          cd python-app
           pip install -r requirements.txt
 
       - name: Run Python Application Locally
