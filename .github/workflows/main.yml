@@ -31,7 +31,7 @@ jobs:
       # Replace this with your test command
 
       - name: Zip Artifact for Deployment
-        run: zip -r python-app.zip python-app/*
+        run: zip -r python-app.zip ./*
 
       - name: Upload Artifact for Deployment
         uses: actions/upload-artifact@v2
