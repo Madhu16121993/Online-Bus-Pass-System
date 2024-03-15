@@ -1,6 +1,6 @@
 from flask import Flask
 
-app = Flask(OBPS)
+app = Flask("OBPS")
 
 @app.route('/')
 def hello():
