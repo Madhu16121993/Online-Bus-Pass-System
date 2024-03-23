@@ -1,5 +1,4 @@
-name:Deploy Python app to Azure Web App - OBPS
-
+name: Build and deploy Python app to Azure Web App - OBPS
 on:
   push:
     branches:
