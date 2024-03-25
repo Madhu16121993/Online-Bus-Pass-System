@@ -38,13 +38,5 @@ Visit  http://127.0.0.1:5000 in your web browser.
 
 
 
-# Demo
-# Demo URL:[ obpm.azurewebsites.net](https://obpm.azurewebsites.net/)
-
-# Demo Video:
-# https://youtu.be/Dt2sL_gJr8c?si=coyvQ9VMhxaM28h4
-# Demo Images: 
-
-
 
 "C:\Users\preet\SQlite\sqlite3.dll"
