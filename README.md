@@ -19,7 +19,7 @@ The Online Bus Pass Application System is a web-based platform designed to simpl
 
 **bash**
 Copy code
-git clone https://github.com/bharath3138/OnlineBus-Pass-System
+git clone https://github.com/Preet2208/Online-Bus-Pass-System.git
 
 **Install dependencies:**
 Copy code
