@@ -15,7 +15,9 @@
         /* Global styles */
         body {
             font-family: 'Roboto', Arial, sans-serif;
-            background-color: blue-red; /* Change background color to blue-red */
+            background: linear-gradient(45deg, #33ccff, #ff99cc, #33ccff, #ff99cc);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -211,4 +213,160 @@
             </div>
             <p class="link-container">
                 <a href="#" class="link" onclick="showLoginForm()">Already have an account? Login</a>
-                <a href="#" class="link" onclick
+                <a href="#" class="link" onclick="showAdminLoginForm()">Admin</a>
+            </p>
+        </section>
+        <section class="admin-login-section">
+            <h2 class="section-title">Admin Login</h2>
+            <div class="form-container">
+                <form class="form form-admin-login" method="POST" action="{{ url_for('admin_login') }}" onsubmit="return validateAdminLoginForm()">
+                    <div class="input-block">
+                        <label for="admin-login-username">Username</label>
+                        <input id="admin-login-username" type="text" name="admin-login-mail" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="admin-login-password">Password</label>
+                        <input id="admin-login-password" type="password" name="admin-login-password" required>
+                    </div>
+                    <button type="submit" class="btn-login">Admin Login</button>
+                </form>
+            </div>
+            <p class="link-container">
+                <a href="#" class="link" onclick="showLoginForm()">Back to User Login</a>
+                <a href="#" class="link" onclick="showAdminRegisterForm()">Register as admin</a>
+            </p>
+        </section>
+        <!-- Admin Registration Form -->
+        <section class="admin-register-section">
+            <h2 class="section-title">Admin Registration</h2>
+            <div class="form-container">
+                <form class="form form-admin-register" method="POST" action="{{ url_for('admin_register') }}" onsubmit="return validateAdminRegisterForm()">
+                    <div class="input-block">
+                        <label for="admin-register-email">E-mail</label>
+                        <input id="admin-register-email" type="email" name="admin-register-email" required>
+                    </div>
+                    <div class="input-block">
+                        <label for="admin-register-password">Password</label>
+                        <input id="admin-register-password" type="password" name="admin-register-password" required>
+                    </div>
+                    <button type="submit" class="btn-login">Register as Admin</button>
+                </form>
+            </div>
+            <p class="link-container">
+                <a href="#" class="link" onclick="showAdminLoginForm()">Back to Admin Login</a>
+            </p>
+        </section>
+    </div>
+
+    <script>
+        // Your JavaScript code here
+        function validateLoginForm() {
+            const loginEmail = document.getElementById("login-email").value;
+            const loginPassword = document.getElementById("login-password").value;
+
+            
+            if (loginEmail === "" || loginPassword === "") {
+                alert("Please fill in all fields.");
+                return false; // Prevent form submission
+            }
+
+            // You can add more validation checks here as needed
+
+            // If all checks pass, allow form submission
+            return true;
+        }
+
+        function validateRegisterForm() {
+            const registerName = document.getElementById("register-name").value;
+            const registerEmail = document.getElementById("register-email").value;
+            const registerPassword = document.getElementById("register-password").value;
+
+            // Replace this with your actual validation logic
+            if (registerName === "" || registerEmail === "" || registerPassword === "") {
+                alert("Please fill in all fields.");
+                return false; // Prevent form submission
+            }
+
+            // You can add more validation checks here as needed
+
+            // If all checks pass, allow form submission
+            return true;
+        }
+
+        function validateAdminLoginForm() {
+            const adminUsername = document.getElementById("admin-login-username").value;
+            const adminPassword = document.getElementById("admin-login-password").value;
+
+            // Replace this with your actual admin validation logic
+            if (adminUsername === "" || adminPassword === "") {
+                alert("Please fill in all fields.");
+                return false; // Prevent form submission
+            }
+
+            // You can add more admin validation checks here as needed
+
+            // If all checks pass, allow admin login
+            return true;
+        }
+
+        function validateAdminRegisterForm() {
+            const adminRegisterEmail = document.getElementById("admin-register-email").value;
+            const adminRegisterPassword = document.getElementById("admin-register-password").value;
+
+            // Replace this with your actual admin registration validation logic
+            if (adminRegisterEmail === "" || adminRegisterPassword === "") {
+                alert("Please fill in all fields.");
+                return false; // Prevent form submission
+            }
+
+            // You can add more admin registration validation checks here as needed
+
+            // If all checks pass, allow admin registration
+            return true;
+        }
+
+        function clearFormFields() {
+            const formFields = document.querySelectorAll('input[type="text"], input[type="password"], input[type="email"]');
+            formFields.forEach(function (field) {
+                field.value = '';
+            });
+        }
+
+        // Clear form fields on page load to prevent auto-fill
+        window.onload = clearFormFields;
+
+        function showRegisterForm() {
+            document.querySelector(".login-section").style.display = "none";
+            document.querySelector(".register-section").style.display = "block";
+            document.querySelector(".admin-login-section").style.display = "none";
+            document.querySelector(".admin-register-section").style.display = "none";
+            clearFormFields();
+        }
+
+        function showLoginForm() {
+            document.querySelector(".login-section").style.display = "block";
+            document.querySelector(".register-section").style.display = "none";
+            document.querySelector(".admin-login-section").style.display = "none";
+            document.querySelector(".admin-register-section").style.display = "none";
+            clearFormFields();
+        }
+
+        function showAdminLoginForm() {
+            document.querySelector(".login-section").style.display = "none";
+            document.querySelector(".register-section").style.display = "none";
+            document.querySelector(".admin-login-section").style.display = "block";
+            document.querySelector(".admin-register-section").style.display = "none";
+            clearFormFields();
+        }
+
+        function showAdminRegisterForm() {
+        document.querySelector(".login-section").style.display = "none";
+        document.querySelector(".register-section").style.display = "none";
+        document.querySelector(".admin-login-section").style.display = "none";
+        document.querySelector(".admin-register-section").style.display = "block"; 
+        clearFormFields();
+    }
+        
+    </script>
+</body>
+</html>
