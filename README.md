@@ -33,7 +33,7 @@ Visit  http://127.0.0.1:5000 in your web browser.
 
 # Technologies Used
 **Backend:** Python Flask
-**Frontend:** HTML, CSS, JavaScript
+**Frontend:** HTML, CSS, JavaScript.
 **Database:** SQLite3
 
 
