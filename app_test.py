@@ -33,7 +33,7 @@ def test_register(client):
 
 def test_login(client):
     response = client.post('/login', data=dict(
-        login-email='test1@example.com',
+        'login-email':'test1@example.com',
         login-password='test123'
     ), follow_redirects=True)
     assert b'Dashboard' in response.data
