@@ -26,14 +26,14 @@ def test_index(client):
 
 def test_register(client):
     response = client.post('/register', data=dict(
-        register_email='123php@gmail.com',
-        register_password='123'
+        register_email='test1@example.com',
+        register_password='test123'
     ), follow_redirects=True)
     assert b'Registration successful' in response.data
 
 def test_login(client):
     response = client.post('/login', data={
-        "login-email": "123php@gmail.com",
-        "login-password": "123"
+        "login_email": "test1@example.com",
+        "login_password": "test123"
     }, follow_redirects=True)
     assert b'Dashboard' in response.data
