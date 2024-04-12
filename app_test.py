@@ -32,8 +32,8 @@ def test_register(client):
     assert b'Registration successful' in response.data
 
 def test_login(client):
-    response = client.post('/login', data=dict(
+    response = client.post('/login', data={
         "login-email": "test1@example.com",
         "login-password": "test123"
-    ), follow_redirects=True)
+    }, follow_redirects=True)
     assert b'Dashboard' in response.data
