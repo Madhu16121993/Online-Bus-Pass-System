@@ -63,7 +63,7 @@ jobs:
 
       - name: Run tests
         run: |
-          python -m pytest app_test.py  # Adjusted to run tests from app_test.py
+          python -m pytest app_test.py  
 
   deploy:
     runs-on: ubuntu-latest
